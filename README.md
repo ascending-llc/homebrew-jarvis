@@ -1,4 +1,4 @@
-# homebrew-jarvis
+# ASCENDING Jarvis Tap
 
 Homebrew tap for [Jarvis Registry](https://github.com/ascending-llc/jarvis-registry) tooling.
 
