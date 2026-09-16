@@ -5,55 +5,72 @@
 class JarvisRegistry < Formula
   desc "Companion CLI for the Jarvis Registry platform."
   homepage "https://github.com/ascending-llc/jarvis-registry-cli"
-  version "0.6.2"
+  version "0.6.3"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/ascending-llc/jarvis-registry-cli/releases/download/v0.6.2/jarvis-registry_0.6.2_darwin_amd64.tar.gz"
-      sha256 "ec7f96f4e753bd4c57d456ae262716764a19083dc3b5b8d57021472914a58d00"
+      url "https://github.com/ascending-llc/jarvis-registry-cli/releases/download/v0.6.3/jarvis-registry_0.6.3_darwin_amd64.tar.gz"
+      sha256 "7f4c5ae82e4067c36bf3d57763af79c80231ac4fa6c68fc39001d3a6d4433bf5"
 
       define_method(:install) do
         bin.install "jarvis-registry"
         bash_completion.install "completions/jarvis-registry.bash" => "jarvis-registry"
         zsh_completion.install "completions/jarvis-registry.zsh" => "_jarvis-registry"
         fish_completion.install "completions/jarvis-registry.fish"
+        bin.install_symlink "jarvis-registry" => "jr"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/ascending-llc/jarvis-registry-cli/releases/download/v0.6.2/jarvis-registry_0.6.2_darwin_arm64.tar.gz"
-      sha256 "a349a975faf6db009b7c2df2e0efa749d2fe64fb9493d1485b1b53b3d5af4bed"
+      url "https://github.com/ascending-llc/jarvis-registry-cli/releases/download/v0.6.3/jarvis-registry_0.6.3_darwin_arm64.tar.gz"
+      sha256 "53e038260e8dab7863135966cf87450d183e9bab9d4279086b8988586d9f0196"
 
       define_method(:install) do
         bin.install "jarvis-registry"
         bash_completion.install "completions/jarvis-registry.bash" => "jarvis-registry"
         zsh_completion.install "completions/jarvis-registry.zsh" => "_jarvis-registry"
         fish_completion.install "completions/jarvis-registry.fish"
+        bin.install_symlink "jarvis-registry" => "jr"
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/ascending-llc/jarvis-registry-cli/releases/download/v0.6.2/jarvis-registry_0.6.2_linux_amd64.tar.gz"
-      sha256 "5bcb57f06753815a1e48f4e3d7f01d85c321c192c853f4052d988ce64495f007"
+      url "https://github.com/ascending-llc/jarvis-registry-cli/releases/download/v0.6.3/jarvis-registry_0.6.3_linux_amd64.tar.gz"
+      sha256 "3143944efd1fa5c61b07d109dc518968804c50311cfe5fddc92ac0cc5ba02259"
       define_method(:install) do
         bin.install "jarvis-registry"
         bash_completion.install "completions/jarvis-registry.bash" => "jarvis-registry"
         zsh_completion.install "completions/jarvis-registry.zsh" => "_jarvis-registry"
         fish_completion.install "completions/jarvis-registry.fish"
+        bin.install_symlink "jarvis-registry" => "jr"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/ascending-llc/jarvis-registry-cli/releases/download/v0.6.2/jarvis-registry_0.6.2_linux_arm64.tar.gz"
-      sha256 "1d3362b135d30c84bc0db392c28cd9a9dd13723007a72b2ebc8b5daf8406596f"
+      url "https://github.com/ascending-llc/jarvis-registry-cli/releases/download/v0.6.3/jarvis-registry_0.6.3_linux_arm64.tar.gz"
+      sha256 "8e75e69045c14d8d20163ec96bb96ea442202d9119abbb7e6bbdddff5054d977"
       define_method(:install) do
         bin.install "jarvis-registry"
         bash_completion.install "completions/jarvis-registry.bash" => "jarvis-registry"
         zsh_completion.install "completions/jarvis-registry.zsh" => "_jarvis-registry"
         fish_completion.install "completions/jarvis-registry.fish"
+        bin.install_symlink "jarvis-registry" => "jr"
       end
     end
+  end
+
+  def caveats
+    <<~EOS
+      Run these once, in order, to get started:
+        1. jarvis-registry configure   - set the Registry base URL and skills sync mode
+        2. jarvis-registry auth login  - sign in via browser (cached in your OS keyring)
+        3. jarvis-registry skills sync - pull the skills you have access to
+
+      Run `jarvis-registry --help` for the full flag reference.
+
+      A `jr` symlink has also been installed as a shorthand for `jarvis-registry`.
+    EOS
   end
 
   test do
