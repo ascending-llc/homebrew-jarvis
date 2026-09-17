@@ -5,31 +5,35 @@
 class JarvisRegistry < Formula
   desc "Companion CLI for the Jarvis Registry platform."
   homepage "https://github.com/ascending-llc/jarvis-registry-cli"
-  version "0.6.3"
+  version "0.6.4"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/ascending-llc/jarvis-registry-cli/releases/download/v0.6.3/jarvis-registry_0.6.3_darwin_amd64.tar.gz"
-      sha256 "7f4c5ae82e4067c36bf3d57763af79c80231ac4fa6c68fc39001d3a6d4433bf5"
+      url "https://github.com/ascending-llc/jarvis-registry-cli/releases/download/v0.6.4/jarvis-registry_0.6.4_darwin_amd64.tar.gz"
+      sha256 "cf50aa2299ecee55e6a31afe509104a1954b6314537d14b9ddbb4a28f8aae3c6"
 
       define_method(:install) do
         bin.install "jarvis-registry"
         bash_completion.install "completions/jarvis-registry.bash" => "jarvis-registry"
+        bash_completion.install "completions/jarvis-registry.bash" => "jr"
         zsh_completion.install "completions/jarvis-registry.zsh" => "_jarvis-registry"
         fish_completion.install "completions/jarvis-registry.fish"
+        fish_completion.install "completions/jr.fish"
         bin.install_symlink "jarvis-registry" => "jr"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/ascending-llc/jarvis-registry-cli/releases/download/v0.6.3/jarvis-registry_0.6.3_darwin_arm64.tar.gz"
-      sha256 "53e038260e8dab7863135966cf87450d183e9bab9d4279086b8988586d9f0196"
+      url "https://github.com/ascending-llc/jarvis-registry-cli/releases/download/v0.6.4/jarvis-registry_0.6.4_darwin_arm64.tar.gz"
+      sha256 "8f6beffed51b1f9c346c89eabcb973611653d794ce6088761a802e0f01f6df83"
 
       define_method(:install) do
         bin.install "jarvis-registry"
         bash_completion.install "completions/jarvis-registry.bash" => "jarvis-registry"
+        bash_completion.install "completions/jarvis-registry.bash" => "jr"
         zsh_completion.install "completions/jarvis-registry.zsh" => "_jarvis-registry"
         fish_completion.install "completions/jarvis-registry.fish"
+        fish_completion.install "completions/jr.fish"
         bin.install_symlink "jarvis-registry" => "jr"
       end
     end
@@ -37,24 +41,28 @@ class JarvisRegistry < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/ascending-llc/jarvis-registry-cli/releases/download/v0.6.3/jarvis-registry_0.6.3_linux_amd64.tar.gz"
-      sha256 "3143944efd1fa5c61b07d109dc518968804c50311cfe5fddc92ac0cc5ba02259"
+      url "https://github.com/ascending-llc/jarvis-registry-cli/releases/download/v0.6.4/jarvis-registry_0.6.4_linux_amd64.tar.gz"
+      sha256 "be77e845af6be586b3eaeeeb03814ce86156e7814c4cf77521f97316f0da9c02"
       define_method(:install) do
         bin.install "jarvis-registry"
         bash_completion.install "completions/jarvis-registry.bash" => "jarvis-registry"
+        bash_completion.install "completions/jarvis-registry.bash" => "jr"
         zsh_completion.install "completions/jarvis-registry.zsh" => "_jarvis-registry"
         fish_completion.install "completions/jarvis-registry.fish"
+        fish_completion.install "completions/jr.fish"
         bin.install_symlink "jarvis-registry" => "jr"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/ascending-llc/jarvis-registry-cli/releases/download/v0.6.3/jarvis-registry_0.6.3_linux_arm64.tar.gz"
-      sha256 "8e75e69045c14d8d20163ec96bb96ea442202d9119abbb7e6bbdddff5054d977"
+      url "https://github.com/ascending-llc/jarvis-registry-cli/releases/download/v0.6.4/jarvis-registry_0.6.4_linux_arm64.tar.gz"
+      sha256 "e70dd8683ac4bc6e7af7308e18c471f7ce7e308bba1277dde3e23010cb0fe54a"
       define_method(:install) do
         bin.install "jarvis-registry"
         bash_completion.install "completions/jarvis-registry.bash" => "jarvis-registry"
+        bash_completion.install "completions/jarvis-registry.bash" => "jr"
         zsh_completion.install "completions/jarvis-registry.zsh" => "_jarvis-registry"
         fish_completion.install "completions/jarvis-registry.fish"
+        fish_completion.install "completions/jr.fish"
         bin.install_symlink "jarvis-registry" => "jr"
       end
     end
