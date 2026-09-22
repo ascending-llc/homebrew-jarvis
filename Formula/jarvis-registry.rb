@@ -5,13 +5,13 @@
 class JarvisRegistry < Formula
   desc "Companion CLI for the Jarvis Registry platform."
   homepage "https://github.com/ascending-llc/jarvis-registry-cli"
-  version "0.6.5"
+  version "0.6.6"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/ascending-llc/jarvis-registry-cli/releases/download/v0.6.5/jarvis-registry_0.6.5_darwin_amd64.tar.gz"
-      sha256 "d131f40c1d876a5e829d650f9ac418637bcdadf0843bfe00a3ee1b3c38f8e500"
+      url "https://github.com/ascending-llc/jarvis-registry-cli/releases/download/v0.6.6/jarvis-registry_0.6.6_darwin_amd64.tar.gz"
+      sha256 "b3f2001cdd8425b3152216f23347b02009565267e0d5d137dd737bf4e721a322"
 
       define_method(:install) do
         bin.install "jarvis-registry"
@@ -24,8 +24,8 @@ class JarvisRegistry < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/ascending-llc/jarvis-registry-cli/releases/download/v0.6.5/jarvis-registry_0.6.5_darwin_arm64.tar.gz"
-      sha256 "af75a546b1b33d186749ec0510b8b3de239d111b1577f16fbeded0bf1292d96c"
+      url "https://github.com/ascending-llc/jarvis-registry-cli/releases/download/v0.6.6/jarvis-registry_0.6.6_darwin_arm64.tar.gz"
+      sha256 "7a7325209a44b1816d508f86267c8bbc6c5056ed199ecdfaf48cff7a3e3f6372"
 
       define_method(:install) do
         bin.install "jarvis-registry"
@@ -41,8 +41,8 @@ class JarvisRegistry < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/ascending-llc/jarvis-registry-cli/releases/download/v0.6.5/jarvis-registry_0.6.5_linux_amd64.tar.gz"
-      sha256 "fcbd3430ee081a0485b68c9d4dbedb80036c03b495e4c3dc84283249b393cabb"
+      url "https://github.com/ascending-llc/jarvis-registry-cli/releases/download/v0.6.6/jarvis-registry_0.6.6_linux_amd64.tar.gz"
+      sha256 "21b401be44cb510d1f47adb2d0d286ef4c66c7335e36a42930fff451df2c0d19"
       define_method(:install) do
         bin.install "jarvis-registry"
         bash_completion.install "completions/jarvis-registry.bash" => "jarvis-registry"
@@ -54,8 +54,8 @@ class JarvisRegistry < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/ascending-llc/jarvis-registry-cli/releases/download/v0.6.5/jarvis-registry_0.6.5_linux_arm64.tar.gz"
-      sha256 "82bba230a4536eb2be7035bdcb6daf43c4fe92d2240a690cd943352839e16095"
+      url "https://github.com/ascending-llc/jarvis-registry-cli/releases/download/v0.6.6/jarvis-registry_0.6.6_linux_arm64.tar.gz"
+      sha256 "5fadae73d046461604e372bdb6b9bf2212891b001e3c8d987b37abc570330c02"
       define_method(:install) do
         bin.install "jarvis-registry"
         bash_completion.install "completions/jarvis-registry.bash" => "jarvis-registry"
